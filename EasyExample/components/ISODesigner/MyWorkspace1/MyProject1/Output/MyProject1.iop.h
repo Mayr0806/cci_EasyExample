@@ -10,6 +10,8 @@
 #define DataMask_Home                      1000
 #define Container_Gesamtzaehler            3000
 #define Container_Tageszaehler             3001
+#define Container_3002                     3002
+#define Container_3003                     3003
 #define SoftKeyMask_Home                   4000
 #define SoftKey_PlusPlus                   5000
 #define SoftKey_Reset_Gesamtzaehler        5001
@@ -55,3 +57,4 @@
 #define ObjectPointer_Gesamtziel          27003
 #define AuxFunction2_PlusPlus             29000
 #define AuxFunction2_MinusMinus           29001
+#define ExternalObjectDefinition_38000    38000
