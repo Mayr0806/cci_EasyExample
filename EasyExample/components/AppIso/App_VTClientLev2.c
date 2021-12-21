@@ -199,7 +199,7 @@ void VTC_handleSoftkeysAndButtons_RELEASED(const struct ButtonActivation_S *pBut
 	}
 
 
-
+}
 
 
 void VTC_handleNumericValues(const struct InputNumber_S * pInputNumberData) {
