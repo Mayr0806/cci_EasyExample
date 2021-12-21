@@ -108,7 +108,7 @@ iso_u32 Gesamtziel = 80;
 //Das ist meine Favorisierte Schreibweise. man muss sich aber das ? und den : für WENN und SONST einprägen.
 void CheckZiel(iso_u8 u8Instance) {
 
-	IsoVtcCmd_NumericValue(u8Instance, ObjectPointer_Tagesziel,  Tageszaehler  >= Tagesziel  ? OutputString_ZielErreicht : ID_NULL);
+	//IsoVtcCmd_NumericValue(u8Instance, ObjectPointer_Tagesziel,  Tageszaehler  >= Tagesziel  ? OutputString_ZielErreicht : ID_NULL);
 	IsoVtcCmd_NumericValue(u8Instance, ObjectPointer_Gesamtziel, Gesamtzaehler >= Gesamtziel ? OutputString_ZielErreicht : ID_NULL);
 
 }
@@ -118,9 +118,9 @@ void CheckZiel(iso_u8 u8Instance) {
 void CheckZielAlternativ(iso_u8 u8Instance) {
 
 	if (Tageszaehler >= Tagesziel) { //WENN Bedingung
-		IsoVtcCmd_NumericValue(u8Instance, ObjectPointer_Tagesziel, OutputString_ZielErreicht); //DANN Fall
+		//IsoVtcCmd_NumericValue(u8Instance, ObjectPointer_Tagesziel, OutputString_ZielErreicht); //DANN Fall
 	} else {
-		IsoVtcCmd_NumericValue(u8Instance, ObjectPointer_Tagesziel, ID_NULL); //SONST Fall
+		//IsoVtcCmd_NumericValue(u8Instance, ObjectPointer_Tagesziel, ID_NULL); //SONST Fall
 	}
 
 	if(Gesamtzaehler >= Gesamtziel) {
@@ -166,9 +166,9 @@ void VTC_handleSoftkeysAndButtons_RELEASED(const struct ButtonActivation_S *pBut
 		break;
 
 	case SoftKey_Reset_Tageszaehler:
-	case Button_Reset_Tageszaehler:
-		Tageszaehler = 0;
-		break;
+//	case Button_Reset_Tageszaehler:
+//		Tageszaehler = 0;
+//		break;
 
 	default:
 		break;
@@ -199,13 +199,13 @@ void VTC_handleNumericValues(const struct InputNumber_S * pInputNumberData) {
 		setU32("CF-A", "Gesamtziel", Gesamtziel);
 		break;
 
-	case NumberVariable_Tagesziel:
-		// Variable mit dem Namen NumberVariable_Tagesziel wurde vom Benutzer am UT Verändert
-		Tagesziel = pInputNumberData->newValue;
-		ESP_LOGI(TAG, "you typed Tagesziel: %i", pInputNumberData->newValue); //der eingegebene Wert findet sich in pInputNumberData->newValue
-		// Speichern des Tagesziel; non-volatile; nicht flüchtig; spannungsausfallsicher gespeichert
-		setU32("CF-A", "Tagesziel", Tagesziel);
-		break;
+//	case NumberVariable_Tagesziel:
+//		// Variable mit dem Namen NumberVariable_Tagesziel wurde vom Benutzer am UT Verändert
+//		Tagesziel = pInputNumberData->newValue;
+//		ESP_LOGI(TAG, "you typed Tagesziel: %i", pInputNumberData->newValue); //der eingegebene Wert findet sich in pInputNumberData->newValue
+//		// Speichern des Tagesziel; non-volatile; nicht flüchtig; spannungsausfallsicher gespeichert
+//		setU32("CF-A", "Tagesziel", Tagesziel);
+//		break;
 
 
 	default:
@@ -250,7 +250,7 @@ void VTC_setPoolReady(const ISOVT_EVENT_DATA_T* psEvData)
 	// Senden des Wertes der lokalen Variable Gesamtzaehler an die NumberVariable_Gesamtzaehler
 	IsoVtcCmd_NumericValue(psEvData->u8Instance, NumberVariable_Gesamtzaehler, Gesamtzaehler);
 	// Senden des Wertes der lokalen Variable Tagesziel an die NumberVariable_Tagesziel
-	IsoVtcCmd_NumericValue(psEvData->u8Instance, NumberVariable_Tagesziel, Tagesziel);
+	//IsoVtcCmd_NumericValue(psEvData->u8Instance, NumberVariable_Tagesziel, Tagesziel);
 	// Senden des Wertes der lokalen Variable Gesamtziel an die NumberVariable_Gesamtziel
 	IsoVtcCmd_NumericValue(psEvData->u8Instance, NumberVariable_Gesamtziel, Gesamtziel);
 
