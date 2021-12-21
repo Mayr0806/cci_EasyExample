@@ -144,6 +144,7 @@ void VTC_handleSoftkeysAndButtons_RELEASED(const struct ButtonActivation_S *pBut
 	case SoftKey_PlusPlus:
 	// Button mit Namen  Button_PlusPlus mit ID 6000 wurde losgelassen.
 	case Button_PlusPlus:
+		IsoVtcCmd_CtrlAudioSignal(pButtonData->u8Instance, 4, 440, 100, 500);
 		Tageszaehler++;
 		Gesamtzaehler++;
 		break;
